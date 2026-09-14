@@ -46,3 +46,8 @@ app.*.map.json
 
 # FVM Version Cache
 .fvm/
+
+# Per-developer dart-define values (see config/README.md)
+/config/prod.json
+/config/uat.json
+/config/dev.json
