@@ -13,8 +13,12 @@ class ApiConfig {
   static const String _baseUrl = String.fromEnvironment('API_BASE_URL');
 
   /// Throws [StateError] when `API_BASE_URL` was not defined.
-  static String get baseUrl {
-    if (_baseUrl.isNotEmpty) {
+  static String get baseUrl => resolveBaseUrl(_baseUrl);
+
+  /// The check behind [baseUrl], split out because `String.fromEnvironment` is
+  /// fixed at compile time and so cannot be exercised from a test.
+  static String resolveBaseUrl(String value) {
+    if (value.isEmpty) {
       throw StateError(
         'API_BASE_URL is not defined. Pass a config file when you run, build '
         'or test, for example:\n'
@@ -22,9 +26,10 @@ class ApiConfig {
       );
     }
 
-    return _baseUrl;
+    return value;
   }
 
   static const Duration connectTimeout = Duration(seconds: 8);
+  static const Duration sendTimeout = Duration(seconds: 10);
   static const Duration receiveTimeout = Duration(seconds: 10);
 }
