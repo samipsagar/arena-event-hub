@@ -11,7 +11,6 @@ class StartupScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // `go` rather than `push`: startup is not somewhere to come back to.
     ref.listen(startupViewModelProvider, (_, next) {
       if (next case AsyncData(:final value)) {
         context.go(value);

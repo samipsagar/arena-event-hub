@@ -1,5 +1,6 @@
-/// Every location in the app, in one place.å
 abstract final class Routes {
   static const startup = '/startup';
-  static const home = '/';
+  static const events = '/events';
+  static const eventDetail = '/eventDetail';
+  static const eventForm = '/eventForm';
 }

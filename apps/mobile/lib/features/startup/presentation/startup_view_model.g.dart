@@ -10,31 +10,16 @@ part of 'startup_view_model.dart';
 // ignore_for_file: type=lint, type=warning
 /// Drives the startup screen, and decides where the app opens.
 ///
-/// The state is `AsyncValue<String>`, where the value is the route to open:
-/// loading is the splash, error is the retry screen, and data is "go here".
-/// Keeping the destination in the view model means the branching that startup
-/// will grow — signed out, onboarding not finished, update required — stays in
-/// one testable place instead of spreading into the router.
 
 @ProviderFor(StartupViewModel)
 final startupViewModelProvider = StartupViewModelProvider._();
 
 /// Drives the startup screen, and decides where the app opens.
 ///
-/// The state is `AsyncValue<String>`, where the value is the route to open:
-/// loading is the splash, error is the retry screen, and data is "go here".
-/// Keeping the destination in the view model means the branching that startup
-/// will grow — signed out, onboarding not finished, update required — stays in
-/// one testable place instead of spreading into the router.
 final class StartupViewModelProvider
     extends $AsyncNotifierProvider<StartupViewModel, String> {
   /// Drives the startup screen, and decides where the app opens.
   ///
-  /// The state is `AsyncValue<String>`, where the value is the route to open:
-  /// loading is the splash, error is the retry screen, and data is "go here".
-  /// Keeping the destination in the view model means the branching that startup
-  /// will grow — signed out, onboarding not finished, update required — stays in
-  /// one testable place instead of spreading into the router.
   StartupViewModelProvider._()
     : super(
         from: null,
@@ -54,15 +39,10 @@ final class StartupViewModelProvider
   StartupViewModel create() => StartupViewModel();
 }
 
-String _$startupViewModelHash() => r'd4b84dbf539bf350e894d123111a20c64e3f65a4';
+String _$startupViewModelHash() => r'531f5a773b900ceb0f37fcce1147d30445f2b4de';
 
 /// Drives the startup screen, and decides where the app opens.
 ///
-/// The state is `AsyncValue<String>`, where the value is the route to open:
-/// loading is the splash, error is the retry screen, and data is "go here".
-/// Keeping the destination in the view model means the branching that startup
-/// will grow — signed out, onboarding not finished, update required — stays in
-/// one testable place instead of spreading into the router.
 
 abstract class _$StartupViewModel extends $AsyncNotifier<String> {
   FutureOr<String> build();

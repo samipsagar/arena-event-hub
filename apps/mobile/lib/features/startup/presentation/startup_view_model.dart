@@ -23,6 +23,6 @@ class StartupViewModel extends _$StartupViewModel {
     // that matches the result rather than always going home.
     await Future<void>.delayed(const Duration(milliseconds: 500));
 
-    return Routes.home;
+    return Routes.events;
   }
 }
