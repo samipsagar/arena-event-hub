@@ -26,3 +26,9 @@ linter:
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
+plugins:
+  # Held at 3.1.8: riverpod_lint 3.1.9+ needs Dart >=3.13, and this
+  # project is pinned to Flutter 3.44.4 / Dart 3.12.2 via .fvmrc.
+  # Revisit when the Flutter pin moves.
+  riverpod_lint: 3.1.8
