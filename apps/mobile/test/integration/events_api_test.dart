@@ -105,7 +105,7 @@ void main() {
 
         await service.loadEvents();
 
-        expect(sent.queryParameters, {'limit': 20});
+        expect(sent.queryParameters, {'limit': 10});
       },
     );
 

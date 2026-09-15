@@ -10,7 +10,7 @@ class EventRepository {
 
   static const _path = '/api/v1/events';
 
-  static const defaultLimit = 20;
+  static const defaultLimit = 10;
 
   final ApiClient _client;
 
