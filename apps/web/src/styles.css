@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+/* Tailwind's preflight handles the resets; the app only needs full-height roots. */
+html,
+body {
+  height: 100%;
+}
+
+.feedback-error {
+  --mdc-snackbar-container-color: var(--mat-sys-error);
+  --mdc-snackbar-supporting-text-color: var(--mat-sys-on-error);
+  --mat-snack-bar-button-color: var(--mat-sys-on-error);
+}
+
+/*
+ * Material sets line-height: 1 on native date/time inputs for MDC baseline
+ * alignment. Combined with its own height: auto, that squashes the input to
+ * ~14px — below its own font size — clipping the native picker's segments
+ * and calendar icon so the field is nearly unusable. Restore a normal line
+ * height so it renders (and is clickable) at the same height as other
+ * mat-form-field inputs.
+ */
+.mat-mdc-form-field-input-control[type='date'],
+.mat-mdc-form-field-input-control[type='datetime-local'],
+.mat-mdc-form-field-input-control[type='month'],
+.mat-mdc-form-field-input-control[type='time'],
+.mat-mdc-form-field-input-control[type='week'] {
+  /* line-height alone doesn't resize these — Chromium sizes the native
+     picker widget itself, not by line-height, so pin height explicitly too. */
+  line-height: 1.5 !important;
+  height: 1.5em !important;
+}

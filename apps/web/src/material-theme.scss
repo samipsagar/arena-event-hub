@@ -1,0 +1,17 @@
+// Minimal Material theme: scoped to what MatDialog and MatSnackBar need.
+// The rest of the app stays on Tailwind, so this deliberately skips the
+// body-level background/typography overrides `ng add @angular/material`
+// would normally scaffold.
+@use '@angular/material' as mat;
+
+:root {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      density: 0,
+    )
+  );
+}
