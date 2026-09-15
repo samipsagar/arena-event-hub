@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+
+/* Tailwind's preflight handles the resets; the app only needs full-height roots. */
+html,
+body {
+  height: 100%;
+}
