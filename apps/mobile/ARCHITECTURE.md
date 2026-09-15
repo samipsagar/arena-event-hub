@@ -166,10 +166,18 @@ Other conventions:
 
 ## 6. Two details worth knowing
 
-**Unknown enum values don't crash.** `EventDto.sport` and `.status` stay
-`String` on the wire; the mapper decides what they mean and falls back to an
-`unknown` variant. A new sport added by the backend degrades instead of
-throwing a `ParsingException`.
+**Unknown enum values are rejected, not absorbed.** `EventDto.sport` and
+`.status` stay `String` on the wire, and the mapper decides what they mean —
+but a value it does not recognise throws a `ParsingException` rather than
+degrading to a fallback variant. An unrecognised value means the contract has
+drifted, and failing on it is what stops the app mislabelling an event or
+writing back a value the backend will refuse.
+
+The cost is that the blast radius is a page rather than a row: one unknown
+event fails the mapping of the whole page it arrives in. That is the right
+trade while the clients ship in lockstep with the backend, and the wrong one
+for an independently released client — the root
+[README](../../README.md) §9 records the alternatives and when to revisit.
 
 **Times are UTC on the wire, local in the domain.** `EventMapper` calls
 `.toLocal()` inbound and `.toUtc()` outbound, so entities are always ready to

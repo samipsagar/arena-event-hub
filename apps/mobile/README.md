@@ -55,13 +55,22 @@ Flutter).
 
 ## 3. Running the app
 
-Every run needs a config file — there is no default base URL, so a build that
-forgets one fails loudly instead of quietly pointing at someone's laptop:
+Every run needs a base URL — there is no default, so a build that defines no
+`API_BASE_URL` fails loudly instead of quietly pointing at someone's laptop.
+[config/dev.json](config/dev.json) holds that one key, already set to
+`http://localhost:8080`:
 
 ```bash
 fvm flutter devices                                             # list what's attached
 fvm flutter run --dart-define-from-file=config/dev.json         # default device
 fvm flutter run --dart-define-from-file=config/dev.json -d <id> # pick a device
+```
+
+The file is a convenience, not a requirement — naming the variable inline does
+the same job, which is handy for a one-off URL you do not want to commit:
+
+```bash
+fvm flutter run --dart-define=API_BASE_URL=http://localhost:8080
 ```
 
 Hot reload is `r`, hot restart `R`, quit `q`.
@@ -76,8 +85,8 @@ fvm flutter test      --dart-define-from-file=config/dev.json
 
 > **Defines are compile-time, not runtime.** The value is baked in by the
 > compiler. Exporting `API_BASE_URL` in your shell does nothing, and changing
-> it needs a full restart — hot reload will not pick it up. Keys, formats and
-> the reasoning live in [config/README.md](config/README.md).
+> it needs a full restart — hot reload will not pick it up. The files under
+> `config/` carry one key, `API_BASE_URL`, and must be strict JSON.
 
 ### Pointing at a backend
 
@@ -90,10 +99,13 @@ fvm flutter test      --dart-define-from-file=config/dev.json
 | Android emulator | `http://10.0.2.2:8080` — `localhost` resolves to the emulator itself |
 | Physical device | `http://<your-LAN-IP>:8080` |
 
-For the latter two, load the file and override the one value — `--dart-define`
-beats a same-named key in `--dart-define-from-file` regardless of flag order:
+For the latter two, either name the URL inline on its own, or load the file and
+override the one value — `--dart-define` beats a same-named key in
+`--dart-define-from-file` regardless of flag order:
 
 ```bash
+fvm flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8080
+
 fvm flutter run --dart-define-from-file=config/dev.json \
   --dart-define=API_BASE_URL=http://10.0.2.2:8080
 ```
