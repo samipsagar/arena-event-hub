@@ -31,7 +31,7 @@ class EventMock {
     'venue': _venue,
     'startsAt': '2026-03-14T18:30:00.000Z',
     'endsAt': '2026-03-14T20:00:00.000Z',
-    'durationMinutes': 90,
+    'durationInMinutes': 90,
     'participantLimit': participantLimit,
     'registeredParticipants': registeredParticipants,
     'spotsRemaining': participantLimit - registeredParticipants,
@@ -69,7 +69,7 @@ class EventMock {
     // up: local, so this holds in any timezone.
     startsAt: DateTime.utc(2026, 3, 14, 18, 30).toLocal(),
     endsAt: DateTime.utc(2026, 3, 14, 20, 0).toLocal(),
-    durationMinutes: 90,
+    durationInMinutes: 90,
     participantLimit: participantLimit,
     registeredParticipants: registeredParticipants,
     spotsRemaining: participantLimit - registeredParticipants,
@@ -89,7 +89,7 @@ class EventMock {
     status: status,
     venue: _venue,
     startsAt: DateTime.utc(2026, 3, 14, 18, 30),
-    durationMinutes: 90,
+    durationInMinutes: 90,
     participantLimit: 10,
     registeredParticipants: 4,
   );

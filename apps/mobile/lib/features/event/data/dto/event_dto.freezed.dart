@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventDto {
 
- String get id; String get title; String get description; String get sport; String get status; String get venue; DateTime get startsAt; DateTime get endsAt; int get durationMinutes; int get participantLimit; int get registeredParticipants; int get spotsRemaining; DateTime get createdAt; DateTime get updatedAt;
+ String get id; String get title; String get description; String get sport; String get status; String get venue; DateTime get startsAt; DateTime get endsAt; int get durationInMinutes; int get participantLimit; int get registeredParticipants; int get spotsRemaining; DateTime get createdAt; DateTime get updatedAt;
 /// Create a copy of EventDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $EventDtoCopyWith<EventDto> get copyWith => _$EventDtoCopyWithImpl<EventDto>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventDto&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationMinutes, durationMinutes) || other.durationMinutes == durationMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventDto&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationInMinutes, durationInMinutes) || other.durationInMinutes == durationInMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationMinutes,participantLimit,registeredParticipants,spotsRemaining,createdAt,updatedAt);
+int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationInMinutes,participantLimit,registeredParticipants,spotsRemaining,createdAt,updatedAt);
 
 @override
 String toString() {
-  return 'EventDto(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationMinutes: $durationMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining, createdAt: $createdAt, updatedAt: $updatedAt)';
+  return 'EventDto(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationInMinutes: $durationInMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining, createdAt: $createdAt, updatedAt: $updatedAt)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $EventDtoCopyWith<$Res>  {
   factory $EventDtoCopyWith(EventDto value, $Res Function(EventDto) _then) = _$EventDtoCopyWithImpl;
 @useResult
 $Res call({
- String id, String title, String description, String sport, String status, String venue, DateTime startsAt, DateTime endsAt, int durationMinutes, int participantLimit, int registeredParticipants, int spotsRemaining, DateTime createdAt, DateTime updatedAt
+ String id, String title, String description, String sport, String status, String venue, DateTime startsAt, DateTime endsAt, int durationInMinutes, int participantLimit, int registeredParticipants, int spotsRemaining, DateTime createdAt, DateTime updatedAt
 });
 
 
@@ -66,7 +66,7 @@ class _$EventDtoCopyWithImpl<$Res>
 
 /// Create a copy of EventDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,Object? createdAt = null,Object? updatedAt = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationInMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,Object? createdAt = null,Object? updatedAt = null,}) {
   return _then(EventDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ as String,status: null == status ? _self.status : status // ignore: cast_nullabl
 as String,venue: null == venue ? _self.venue : venue // ignore: cast_nullable_to_non_nullable
 as String,startsAt: null == startsAt ? _self.startsAt : startsAt // ignore: cast_nullable_to_non_nullable
 as DateTime,endsAt: null == endsAt ? _self.endsAt : endsAt // ignore: cast_nullable_to_non_nullable
-as DateTime,durationMinutes: null == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
+as DateTime,durationInMinutes: null == durationInMinutes ? _self.durationInMinutes : durationInMinutes // ignore: cast_nullable_to_non_nullable
 as int,participantLimit: null == participantLimit ? _self.participantLimit : participantLimit // ignore: cast_nullable_to_non_nullable
 as int,registeredParticipants: null == registeredParticipants ? _self.registeredParticipants : registeredParticipants // ignore: cast_nullable_to_non_nullable
 as int,spotsRemaining: null == spotsRemaining ? _self.spotsRemaining : spotsRemaining // ignore: cast_nullable_to_non_nullable
@@ -167,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String sport,  String status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining,  DateTime createdAt,  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String sport,  String status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining,  DateTime createdAt,  DateTime updatedAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventDto() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining,_that.createdAt,_that.updatedAt);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining,_that.createdAt,_that.updatedAt);case _:
   return orElse();
 
 }
@@ -188,10 +188,10 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String sport,  String status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining,  DateTime createdAt,  DateTime updatedAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  String sport,  String status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining,  DateTime createdAt,  DateTime updatedAt)  $default,) {final _that = this;
 switch (_that) {
 case _EventDto():
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining,_that.createdAt,_that.updatedAt);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining,_that.createdAt,_that.updatedAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +208,10 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  String sport,  String status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining,  DateTime createdAt,  DateTime updatedAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  String sport,  String status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining,  DateTime createdAt,  DateTime updatedAt)?  $default,) {final _that = this;
 switch (_that) {
 case _EventDto() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining,_that.createdAt,_that.updatedAt);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining,_that.createdAt,_that.updatedAt);case _:
   return null;
 
 }
@@ -223,7 +223,7 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 @JsonSerializable()
 
 class _EventDto implements EventDto {
-  const _EventDto({required this.id, required this.title, this.description = '', required this.sport, required this.status, required this.venue, required this.startsAt, required this.endsAt, required this.durationMinutes, required this.participantLimit, required this.registeredParticipants, required this.spotsRemaining, required this.createdAt, required this.updatedAt});
+  const _EventDto({required this.id, required this.title, this.description = '', required this.sport, required this.status, required this.venue, required this.startsAt, required this.endsAt, required this.durationInMinutes, required this.participantLimit, required this.registeredParticipants, required this.spotsRemaining, required this.createdAt, required this.updatedAt});
   factory _EventDto.fromJson(Map<String, dynamic> json) => _$EventDtoFromJson(json);
 
 @override final  String id;
@@ -234,7 +234,7 @@ class _EventDto implements EventDto {
 @override final  String venue;
 @override final  DateTime startsAt;
 @override final  DateTime endsAt;
-@override final  int durationMinutes;
+@override final  int durationInMinutes;
 @override final  int participantLimit;
 @override final  int registeredParticipants;
 @override final  int spotsRemaining;
@@ -254,16 +254,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventDto&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationMinutes, durationMinutes) || other.durationMinutes == durationMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventDto&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationInMinutes, durationInMinutes) || other.durationInMinutes == durationInMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationMinutes,participantLimit,registeredParticipants,spotsRemaining,createdAt,updatedAt);
+int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationInMinutes,participantLimit,registeredParticipants,spotsRemaining,createdAt,updatedAt);
 
 @override
 String toString() {
-  return 'EventDto(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationMinutes: $durationMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining, createdAt: $createdAt, updatedAt: $updatedAt)';
+  return 'EventDto(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationInMinutes: $durationInMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining, createdAt: $createdAt, updatedAt: $updatedAt)';
 }
 
 
@@ -274,7 +274,7 @@ abstract mixin class _$EventDtoCopyWith<$Res> implements $EventDtoCopyWith<$Res>
   factory _$EventDtoCopyWith(_EventDto value, $Res Function(_EventDto) _then) = __$EventDtoCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String title, String description, String sport, String status, String venue, DateTime startsAt, DateTime endsAt, int durationMinutes, int participantLimit, int registeredParticipants, int spotsRemaining, DateTime createdAt, DateTime updatedAt
+ String id, String title, String description, String sport, String status, String venue, DateTime startsAt, DateTime endsAt, int durationInMinutes, int participantLimit, int registeredParticipants, int spotsRemaining, DateTime createdAt, DateTime updatedAt
 });
 
 
@@ -291,7 +291,7 @@ class __$EventDtoCopyWithImpl<$Res>
 
 /// Create a copy of EventDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,Object? createdAt = null,Object? updatedAt = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationInMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,Object? createdAt = null,Object? updatedAt = null,}) {
   return _then(_EventDto(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -301,7 +301,7 @@ as String,status: null == status ? _self.status : status // ignore: cast_nullabl
 as String,venue: null == venue ? _self.venue : venue // ignore: cast_nullable_to_non_nullable
 as String,startsAt: null == startsAt ? _self.startsAt : startsAt // ignore: cast_nullable_to_non_nullable
 as DateTime,endsAt: null == endsAt ? _self.endsAt : endsAt // ignore: cast_nullable_to_non_nullable
-as DateTime,durationMinutes: null == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
+as DateTime,durationInMinutes: null == durationInMinutes ? _self.durationInMinutes : durationInMinutes // ignore: cast_nullable_to_non_nullable
 as int,participantLimit: null == participantLimit ? _self.participantLimit : participantLimit // ignore: cast_nullable_to_non_nullable
 as int,registeredParticipants: null == registeredParticipants ? _self.registeredParticipants : registeredParticipants // ignore: cast_nullable_to_non_nullable
 as int,spotsRemaining: null == spotsRemaining ? _self.spotsRemaining : spotsRemaining // ignore: cast_nullable_to_non_nullable

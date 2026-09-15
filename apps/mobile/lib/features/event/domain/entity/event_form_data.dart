@@ -14,7 +14,7 @@ abstract class EventFormData with _$EventFormData {
     required EventStatus status,
     required String venue,
     required DateTime startsAt,
-    required int durationMinutes,
+    required int durationInMinutes,
     required int participantLimit,
     required int registeredParticipants,
   }) = _EventFormData;

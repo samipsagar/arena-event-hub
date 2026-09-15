@@ -58,7 +58,7 @@ class _EventFormScreenState extends ConsumerState<EventFormScreen> {
       text: '${existing?.registeredParticipants ?? 0}',
     );
     _durationController = TextEditingController(
-      text: '${existing?.durationMinutes ?? 120}',
+      text: '${existing?.durationInMinutes ?? 120}',
     );
     _participantLimitController = TextEditingController(
       text: '${existing?.participantLimit ?? 1000}',
@@ -122,7 +122,7 @@ class _EventFormScreenState extends ConsumerState<EventFormScreen> {
       status: _selectedEventStatus,
       venue: _venueController.text.trim(),
       startsAt: _startsAt,
-      durationMinutes: int.parse(_durationController.text),
+      durationInMinutes: int.parse(_durationController.text),
       participantLimit: int.parse(_participantLimitController.text),
       registeredParticipants: int.parse(_registeredParticipantController.text),
     );

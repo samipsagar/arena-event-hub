@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventFormData {
 
- String? get id; String get title; String? get description; Sport get sport; EventStatus get status; String get venue; DateTime get startsAt; int get durationMinutes; int get participantLimit; int get registeredParticipants;
+ String? get id; String get title; String? get description; Sport get sport; EventStatus get status; String get venue; DateTime get startsAt; int get durationInMinutes; int get participantLimit; int get registeredParticipants;
 /// Create a copy of EventFormData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -26,16 +26,16 @@ $EventFormDataCopyWith<EventFormData> get copyWith => _$EventFormDataCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventFormData&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.durationMinutes, durationMinutes) || other.durationMinutes == durationMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventFormData&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.durationInMinutes, durationInMinutes) || other.durationInMinutes == durationInMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,durationMinutes,participantLimit,registeredParticipants);
+int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,durationInMinutes,participantLimit,registeredParticipants);
 
 @override
 String toString() {
-  return 'EventFormData(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, durationMinutes: $durationMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants)';
+  return 'EventFormData(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, durationInMinutes: $durationInMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants)';
 }
 
 
@@ -46,7 +46,7 @@ abstract mixin class $EventFormDataCopyWith<$Res>  {
   factory $EventFormDataCopyWith(EventFormData value, $Res Function(EventFormData) _then) = _$EventFormDataCopyWithImpl;
 @useResult
 $Res call({
- String? id, String title, String? description, Sport sport, EventStatus status, String venue, DateTime startsAt, int durationMinutes, int participantLimit, int registeredParticipants
+ String? id, String title, String? description, Sport sport, EventStatus status, String venue, DateTime startsAt, int durationInMinutes, int participantLimit, int registeredParticipants
 });
 
 
@@ -63,7 +63,7 @@ class _$EventFormDataCopyWithImpl<$Res>
 
 /// Create a copy of EventFormData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? title = null,Object? description = freezed,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? durationMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? title = null,Object? description = freezed,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? durationInMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,}) {
   return _then(EventFormData(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -72,7 +72,7 @@ as String?,sport: null == sport ? _self.sport : sport // ignore: cast_nullable_t
 as Sport,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as EventStatus,venue: null == venue ? _self.venue : venue // ignore: cast_nullable_to_non_nullable
 as String,startsAt: null == startsAt ? _self.startsAt : startsAt // ignore: cast_nullable_to_non_nullable
-as DateTime,durationMinutes: null == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
+as DateTime,durationInMinutes: null == durationInMinutes ? _self.durationInMinutes : durationInMinutes // ignore: cast_nullable_to_non_nullable
 as int,participantLimit: null == participantLimit ? _self.participantLimit : participantLimit // ignore: cast_nullable_to_non_nullable
 as int,registeredParticipants: null == registeredParticipants ? _self.registeredParticipants : registeredParticipants // ignore: cast_nullable_to_non_nullable
 as int,
@@ -160,10 +160,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id,  String title,  String? description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? id,  String title,  String? description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventFormData() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants);case _:
   return orElse();
 
 }
@@ -181,10 +181,10 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id,  String title,  String? description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? id,  String title,  String? description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants)  $default,) {final _that = this;
 switch (_that) {
 case _EventFormData():
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +201,10 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id,  String title,  String? description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? id,  String title,  String? description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants)?  $default,) {final _that = this;
 switch (_that) {
 case _EventFormData() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants);case _:
   return null;
 
 }
@@ -216,7 +216,7 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 
 
 class _EventFormData extends EventFormData {
-  const _EventFormData({required this.id, required this.title, required this.description, required this.sport, required this.status, required this.venue, required this.startsAt, required this.durationMinutes, required this.participantLimit, required this.registeredParticipants}): super._();
+  const _EventFormData({required this.id, required this.title, required this.description, required this.sport, required this.status, required this.venue, required this.startsAt, required this.durationInMinutes, required this.participantLimit, required this.registeredParticipants}): super._();
   
 
 @override final  String? id;
@@ -226,7 +226,7 @@ class _EventFormData extends EventFormData {
 @override final  EventStatus status;
 @override final  String venue;
 @override final  DateTime startsAt;
-@override final  int durationMinutes;
+@override final  int durationInMinutes;
 @override final  int participantLimit;
 @override final  int registeredParticipants;
 
@@ -240,16 +240,16 @@ _$EventFormDataCopyWith<_EventFormData> get copyWith => __$EventFormDataCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventFormData&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.durationMinutes, durationMinutes) || other.durationMinutes == durationMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventFormData&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.durationInMinutes, durationInMinutes) || other.durationInMinutes == durationInMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,durationMinutes,participantLimit,registeredParticipants);
+int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,durationInMinutes,participantLimit,registeredParticipants);
 
 @override
 String toString() {
-  return 'EventFormData(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, durationMinutes: $durationMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants)';
+  return 'EventFormData(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, durationInMinutes: $durationInMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants)';
 }
 
 
@@ -260,7 +260,7 @@ abstract mixin class _$EventFormDataCopyWith<$Res> implements $EventFormDataCopy
   factory _$EventFormDataCopyWith(_EventFormData value, $Res Function(_EventFormData) _then) = __$EventFormDataCopyWithImpl;
 @override @useResult
 $Res call({
- String? id, String title, String? description, Sport sport, EventStatus status, String venue, DateTime startsAt, int durationMinutes, int participantLimit, int registeredParticipants
+ String? id, String title, String? description, Sport sport, EventStatus status, String venue, DateTime startsAt, int durationInMinutes, int participantLimit, int registeredParticipants
 });
 
 
@@ -277,7 +277,7 @@ class __$EventFormDataCopyWithImpl<$Res>
 
 /// Create a copy of EventFormData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? title = null,Object? description = freezed,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? durationMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? title = null,Object? description = freezed,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? durationInMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,}) {
   return _then(_EventFormData(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -286,7 +286,7 @@ as String?,sport: null == sport ? _self.sport : sport // ignore: cast_nullable_t
 as Sport,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as EventStatus,venue: null == venue ? _self.venue : venue // ignore: cast_nullable_to_non_nullable
 as String,startsAt: null == startsAt ? _self.startsAt : startsAt // ignore: cast_nullable_to_non_nullable
-as DateTime,durationMinutes: null == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
+as DateTime,durationInMinutes: null == durationInMinutes ? _self.durationInMinutes : durationInMinutes // ignore: cast_nullable_to_non_nullable
 as int,participantLimit: null == participantLimit ? _self.participantLimit : participantLimit // ignore: cast_nullable_to_non_nullable
 as int,registeredParticipants: null == registeredParticipants ? _self.registeredParticipants : registeredParticipants // ignore: cast_nullable_to_non_nullable
 as int,

@@ -18,7 +18,7 @@ abstract class EventDto with _$EventDto {
     required String venue,
     required DateTime startsAt,
     required DateTime endsAt,
-    required int durationMinutes,
+    required int durationInMinutes,
     required int participantLimit,
     required int registeredParticipants,
     required int spotsRemaining,

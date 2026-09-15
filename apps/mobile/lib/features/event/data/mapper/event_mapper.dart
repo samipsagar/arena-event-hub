@@ -18,7 +18,7 @@ class EventMapper {
       venue: dto.venue,
       startsAt: dto.startsAt.toLocal(),
       endsAt: dto.endsAt.toLocal(),
-      durationMinutes: dto.durationMinutes,
+      durationInMinutes: dto.durationInMinutes,
       participantLimit: dto.participantLimit,
       registeredParticipants: dto.registeredParticipants,
       spotsRemaining: dto.spotsRemaining,
@@ -38,7 +38,7 @@ class EventMapper {
       sport: formData.sport.fromDomain!,
       status: formData.status.fromDomain!,
       startsAt: formData.startsAt.toUtc(),
-      durationInMinutes: formData.durationMinutes,
+      durationInMinutes: formData.durationInMinutes,
       participantLimit: formData.participantLimit,
       registeredParticipants: formData.registeredParticipants,
     );

@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$Event {
 
  String get id; String get title; String get description; Sport get sport; EventStatus get status; String get venue;/// In the device's timezone, ready to format.
- DateTime get startsAt; DateTime get endsAt; int get durationMinutes; int get participantLimit; int get registeredParticipants; int get spotsRemaining;
+ DateTime get startsAt; DateTime get endsAt; int get durationInMinutes; int get participantLimit; int get registeredParticipants; int get spotsRemaining;
 /// Create a copy of Event
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -27,16 +27,16 @@ $EventCopyWith<Event> get copyWith => _$EventCopyWithImpl<Event>(this as Event, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Event&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationMinutes, durationMinutes) || other.durationMinutes == durationMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Event&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationInMinutes, durationInMinutes) || other.durationInMinutes == durationInMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationMinutes,participantLimit,registeredParticipants,spotsRemaining);
+int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationInMinutes,participantLimit,registeredParticipants,spotsRemaining);
 
 @override
 String toString() {
-  return 'Event(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationMinutes: $durationMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining)';
+  return 'Event(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationInMinutes: $durationInMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining)';
 }
 
 
@@ -47,7 +47,7 @@ abstract mixin class $EventCopyWith<$Res>  {
   factory $EventCopyWith(Event value, $Res Function(Event) _then) = _$EventCopyWithImpl;
 @useResult
 $Res call({
- String id, String title, String description, Sport sport, EventStatus status, String venue, DateTime startsAt, DateTime endsAt, int durationMinutes, int participantLimit, int registeredParticipants, int spotsRemaining
+ String id, String title, String description, Sport sport, EventStatus status, String venue, DateTime startsAt, DateTime endsAt, int durationInMinutes, int participantLimit, int registeredParticipants, int spotsRemaining
 });
 
 
@@ -64,7 +64,7 @@ class _$EventCopyWithImpl<$Res>
 
 /// Create a copy of Event
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationInMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,}) {
   return _then(Event(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -74,7 +74,7 @@ as Sport,status: null == status ? _self.status : status // ignore: cast_nullable
 as EventStatus,venue: null == venue ? _self.venue : venue // ignore: cast_nullable_to_non_nullable
 as String,startsAt: null == startsAt ? _self.startsAt : startsAt // ignore: cast_nullable_to_non_nullable
 as DateTime,endsAt: null == endsAt ? _self.endsAt : endsAt // ignore: cast_nullable_to_non_nullable
-as DateTime,durationMinutes: null == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
+as DateTime,durationInMinutes: null == durationInMinutes ? _self.durationInMinutes : durationInMinutes // ignore: cast_nullable_to_non_nullable
 as int,participantLimit: null == participantLimit ? _self.participantLimit : participantLimit // ignore: cast_nullable_to_non_nullable
 as int,registeredParticipants: null == registeredParticipants ? _self.registeredParticipants : registeredParticipants // ignore: cast_nullable_to_non_nullable
 as int,spotsRemaining: null == spotsRemaining ? _self.spotsRemaining : spotsRemaining // ignore: cast_nullable_to_non_nullable
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining)  $default,) {final _that = this;
 switch (_that) {
 case _Event():
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  Sport sport,  EventStatus status,  String venue,  DateTime startsAt,  DateTime endsAt,  int durationInMinutes,  int participantLimit,  int registeredParticipants,  int spotsRemaining)?  $default,) {final _that = this;
 switch (_that) {
 case _Event() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining);case _:
+return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,_that.venue,_that.startsAt,_that.endsAt,_that.durationInMinutes,_that.participantLimit,_that.registeredParticipants,_that.spotsRemaining);case _:
   return null;
 
 }
@@ -219,7 +219,7 @@ return $default(_that.id,_that.title,_that.description,_that.sport,_that.status,
 
 
 class _Event extends Event {
-  const _Event({required this.id, required this.title, required this.description, required this.sport, required this.status, required this.venue, required this.startsAt, required this.endsAt, required this.durationMinutes, required this.participantLimit, required this.registeredParticipants, required this.spotsRemaining}): super._();
+  const _Event({required this.id, required this.title, required this.description, required this.sport, required this.status, required this.venue, required this.startsAt, required this.endsAt, required this.durationInMinutes, required this.participantLimit, required this.registeredParticipants, required this.spotsRemaining}): super._();
   
 
 @override final  String id;
@@ -231,7 +231,7 @@ class _Event extends Event {
 /// In the device's timezone, ready to format.
 @override final  DateTime startsAt;
 @override final  DateTime endsAt;
-@override final  int durationMinutes;
+@override final  int durationInMinutes;
 @override final  int participantLimit;
 @override final  int registeredParticipants;
 @override final  int spotsRemaining;
@@ -246,16 +246,16 @@ _$EventCopyWith<_Event> get copyWith => __$EventCopyWithImpl<_Event>(this, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Event&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationMinutes, durationMinutes) || other.durationMinutes == durationMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Event&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.sport, sport) || other.sport == sport)&&(identical(other.status, status) || other.status == status)&&(identical(other.venue, venue) || other.venue == venue)&&(identical(other.startsAt, startsAt) || other.startsAt == startsAt)&&(identical(other.endsAt, endsAt) || other.endsAt == endsAt)&&(identical(other.durationInMinutes, durationInMinutes) || other.durationInMinutes == durationInMinutes)&&(identical(other.participantLimit, participantLimit) || other.participantLimit == participantLimit)&&(identical(other.registeredParticipants, registeredParticipants) || other.registeredParticipants == registeredParticipants)&&(identical(other.spotsRemaining, spotsRemaining) || other.spotsRemaining == spotsRemaining));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationMinutes,participantLimit,registeredParticipants,spotsRemaining);
+int get hashCode => Object.hash(runtimeType,id,title,description,sport,status,venue,startsAt,endsAt,durationInMinutes,participantLimit,registeredParticipants,spotsRemaining);
 
 @override
 String toString() {
-  return 'Event(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationMinutes: $durationMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining)';
+  return 'Event(id: $id, title: $title, description: $description, sport: $sport, status: $status, venue: $venue, startsAt: $startsAt, endsAt: $endsAt, durationInMinutes: $durationInMinutes, participantLimit: $participantLimit, registeredParticipants: $registeredParticipants, spotsRemaining: $spotsRemaining)';
 }
 
 
@@ -266,7 +266,7 @@ abstract mixin class _$EventCopyWith<$Res> implements $EventCopyWith<$Res> {
   factory _$EventCopyWith(_Event value, $Res Function(_Event) _then) = __$EventCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String title, String description, Sport sport, EventStatus status, String venue, DateTime startsAt, DateTime endsAt, int durationMinutes, int participantLimit, int registeredParticipants, int spotsRemaining
+ String id, String title, String description, Sport sport, EventStatus status, String venue, DateTime startsAt, DateTime endsAt, int durationInMinutes, int participantLimit, int registeredParticipants, int spotsRemaining
 });
 
 
@@ -283,7 +283,7 @@ class __$EventCopyWithImpl<$Res>
 
 /// Create a copy of Event
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? sport = null,Object? status = null,Object? venue = null,Object? startsAt = null,Object? endsAt = null,Object? durationInMinutes = null,Object? participantLimit = null,Object? registeredParticipants = null,Object? spotsRemaining = null,}) {
   return _then(_Event(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
@@ -293,7 +293,7 @@ as Sport,status: null == status ? _self.status : status // ignore: cast_nullable
 as EventStatus,venue: null == venue ? _self.venue : venue // ignore: cast_nullable_to_non_nullable
 as String,startsAt: null == startsAt ? _self.startsAt : startsAt // ignore: cast_nullable_to_non_nullable
 as DateTime,endsAt: null == endsAt ? _self.endsAt : endsAt // ignore: cast_nullable_to_non_nullable
-as DateTime,durationMinutes: null == durationMinutes ? _self.durationMinutes : durationMinutes // ignore: cast_nullable_to_non_nullable
+as DateTime,durationInMinutes: null == durationInMinutes ? _self.durationInMinutes : durationInMinutes // ignore: cast_nullable_to_non_nullable
 as int,participantLimit: null == participantLimit ? _self.participantLimit : participantLimit // ignore: cast_nullable_to_non_nullable
 as int,registeredParticipants: null == registeredParticipants ? _self.registeredParticipants : registeredParticipants // ignore: cast_nullable_to_non_nullable
 as int,spotsRemaining: null == spotsRemaining ? _self.spotsRemaining : spotsRemaining // ignore: cast_nullable_to_non_nullable

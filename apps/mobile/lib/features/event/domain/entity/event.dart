@@ -20,7 +20,7 @@ abstract class Event with _$Event {
     /// In the device's timezone, ready to format.
     required DateTime startsAt,
     required DateTime endsAt,
-    required int durationMinutes,
+    required int durationInMinutes,
     required int participantLimit,
     required int registeredParticipants,
     required int spotsRemaining,

@@ -48,7 +48,7 @@ class EventCard extends StatelessWidget {
                 icon: Icons.schedule,
                 text:
                     '${_when.format(event.startsAt)} • '
-                    '${event.durationMinutes} min',
+                    '${event.durationInMinutes} min',
               ),
               const SizedBox(height: 4),
               _IconLine(
