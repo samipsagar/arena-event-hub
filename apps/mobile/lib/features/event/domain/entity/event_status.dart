@@ -3,8 +3,7 @@ enum EventStatus {
   scheduled,
   live,
   completed,
-  cancelled,
-  unknown;
+  cancelled;
 
   String get label => switch (this) {
     .all => 'All',
@@ -12,13 +11,7 @@ enum EventStatus {
     .live => 'Live',
     .completed => 'Completed',
     .cancelled => 'Cancelled',
-    .unknown => 'Unknown',
   };
-
-  /// Everything but [unknown], which nobody can pick.
-  static List<EventStatus> filterable = EventStatus.values
-      .where((s) => s != .unknown)
-      .toList();
 
   /// Mirrors the backend's `EventStatus.ALLOWED_TRANSITIONS`.
   ///

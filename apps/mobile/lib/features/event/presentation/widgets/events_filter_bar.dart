@@ -35,7 +35,7 @@ class EventsFilterBar extends ConsumerWidget {
           const SizedBox(height: 8),
           _ChipRow(
             children: [
-              for (final status in EventStatus.filterable)
+              for (final status in EventStatus.values)
                 _FilterChip(
                   label: status.label,
                   selected: query.status == status,
@@ -47,7 +47,7 @@ class EventsFilterBar extends ConsumerWidget {
           ),
           _ChipRow(
             children: [
-              for (final sport in Sport.filterable)
+              for (final sport in Sport.values)
                 _FilterChip(
                   label: sport.label,
                   selected: query.sport == sport,

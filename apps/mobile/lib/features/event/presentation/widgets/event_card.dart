@@ -87,7 +87,7 @@ class _StatusBadge extends StatelessWidget {
         scheme.primaryContainer,
         scheme.onPrimaryContainer,
       ),
-      EventStatus.completed || EventStatus.cancelled || EventStatus.unknown => (
+      EventStatus.completed || EventStatus.cancelled => (
         scheme.surfaceContainerHighest,
         scheme.onSurfaceVariant,
       ),

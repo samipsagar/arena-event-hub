@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:sports/core/exception/app_exception.dart';
 import 'package:sports/core/network/cursor_page.dart';
 import 'package:sports/features/event/data/dto/event_dto.dart';
 import 'package:sports/features/event/data/dto/event_request_dto.dart';
@@ -139,7 +140,7 @@ void main() {
       expect(page.hasNext, isTrue);
     });
 
-    test('maps a sport the app does not know to unknown', () async {
+    test('rejects a sport the app does not know', () async {
       stubGetAll(
         CursorPage<EventDto>(
           data: [EventMock.dto(sport: 'KABADDI')],
@@ -148,9 +149,19 @@ void main() {
         ),
       );
 
-      final page = await service.loadEvents();
+      expect(service.loadEvents(), throwsA(isA<ParsingException>()));
+    });
 
-      expect(page.events.single, EventMock.entity(sport: Sport.unknown));
+    test('rejects a status the app does not know', () async {
+      stubGetAll(
+        CursorPage<EventDto>(
+          data: [EventMock.dto(status: 'POSTPONED')],
+          nextCursor: null,
+          hasNext: false,
+        ),
+      );
+
+      expect(service.loadEvents(), throwsA(isA<ParsingException>()));
     });
   });
 }

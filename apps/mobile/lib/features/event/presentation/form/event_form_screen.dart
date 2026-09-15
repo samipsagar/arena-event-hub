@@ -196,7 +196,7 @@ class _EventFormScreenState extends ConsumerState<EventFormScreen> {
                 decoration: const InputDecoration(labelText: 'Sport'),
                 items: [
                   for (final sport in Sport.values)
-                    if (sport != Sport.all && sport != Sport.unknown)
+                    if (sport != Sport.all)
                       DropdownMenuItem(value: sport, child: Text(sport.label)),
                 ],
                 onChanged: (value) =>

@@ -1,4 +1,4 @@
-/// The sport an event is played in, plus unknown
+/// The sport an event is played in
 enum Sport {
   all,
   football,
@@ -6,8 +6,7 @@ enum Sport {
   rugby,
   basketball,
   tennis,
-  chess,
-  unknown;
+  chess;
 
   String get label => switch (this) {
     Sport.all => 'All',
@@ -17,11 +16,5 @@ enum Sport {
     Sport.basketball => 'Basketball',
     Sport.tennis => 'Tennis',
     Sport.chess => 'Chess',
-    Sport.unknown => 'Unknown',
   };
-
-  /// Everything but [Sport.unknown]
-  static List<Sport> filterable = Sport.values
-      .where((s) => s != .unknown)
-      .toList();
 }

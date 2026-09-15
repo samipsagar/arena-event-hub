@@ -17,9 +17,7 @@ abstract class EventQuery with _$EventQuery {
 
   /// Lets an empty result say "nothing matched" rather than "nothing exists".
   bool get hasFilters =>
-      (status != null && status != EventStatus.unknown) ||
-      (sport != null && sport != Sport.unknown) ||
-      (search?.trim().isNotEmpty ?? false);
+      status != null || sport != null || (search?.trim().isNotEmpty ?? false);
 
   EventQuery withStatus(EventStatus? status) =>
       EventQuery(status: status, sport: sport, search: search);
