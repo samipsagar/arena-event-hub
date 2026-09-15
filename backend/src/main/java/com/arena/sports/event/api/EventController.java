@@ -97,13 +97,15 @@ public class EventController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Replace an event")
+    @Operation(summary = "Replace an event",
+            description = "A COMPLETED or CANCELLED event is final and cannot be replaced.")
     @ApiResponse(responseCode = "200", description = "The updated event")
     @ApiResponse(responseCode = "400", description = "Validation failed")
     @ApiResponse(responseCode = "404", description = "No event with that id")
     @ApiResponse(responseCode = "409",
-            description = "A business rule was violated, e.g. a participant limit below the number"
-                    + " already registered, or a venue clash")
+            description = "A business rule was violated, e.g. the event is already COMPLETED or"
+                    + " CANCELLED, a participant limit below the number already registered, or a"
+                    + " venue clash")
     EventResponse update(@PathVariable UUID id, @Valid @RequestBody UpdateEventRequest request) {
         log.info("Updating event with ID {}: {}", id, request);
 
@@ -114,13 +116,15 @@ public class EventController {
     @PatchMapping("/{id}")
     @Operation(summary = "Partially update an event",
             description = "Status follows SCHEDULED -> LIVE -> COMPLETED, and may move to CANCELLED"
-                    + " at any point before it finishes. COMPLETED and CANCELLED are final.")
+                    + " at any point before it finishes. COMPLETED and CANCELLED are final: an"
+                    + " event that has reached one can no longer be changed in any way.")
     @ApiResponse(responseCode = "200", description = "The updated event")
     @ApiResponse(responseCode = "400", description = "Validation failed")
     @ApiResponse(responseCode = "404", description = "No event with that id")
     @ApiResponse(responseCode = "409",
-            description = "A business rule was violated, e.g. an illegal status transition, a"
-                    + " participant limit below the number already registered, or a venue clash")
+            description = "A business rule was violated, e.g. the event is already COMPLETED or"
+                    + " CANCELLED, an illegal status transition, a participant limit below the"
+                    + " number already registered, or a venue clash")
     EventResponse partialUpdate(@PathVariable UUID id,
             @Valid @RequestBody PatchEventRequest request) {
         log.info("Partially updating event with ID {}: {}", id, request);

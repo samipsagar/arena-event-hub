@@ -230,4 +230,5 @@ Documented rather than hidden, because each one looks finished at a glance:
 | Browser calls blocked by CORS | Add the origin to `app.cors.allowed-origins`; only `/api/**` is covered |
 | Seed data missing after restart | It only seeds an **empty** table, and the DB is in-memory — both are expected |
 | `409` on a status change that looks valid | `COMPLETED` and `CANCELLED` are terminal — see ARCHITECTURE.md §7 |
+| `409` on a `PUT`/`PATCH` that changes no status at all | The event is already `COMPLETED` or `CANCELLED`, and those are frozen against every edit (ARCHITECTURE.md §7) |
 | Stale build after dependency changes | `./mvnw clean test` |

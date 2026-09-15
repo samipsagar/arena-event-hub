@@ -91,6 +91,7 @@ public class EventService {
     @Transactional
     public Event update(UUID id, UpdateEventRequest request) {
         Event existingEvent = findById(id);
+        checkNotFinished(existingEvent);
         checkStatusTransition(existingEvent, request.status());
         Event eventToUpdate = eventMapper.fromUpdateRequest(existingEvent, request);
         eventRules.check(eventToUpdate);
@@ -103,6 +104,7 @@ public class EventService {
     @Transactional
     public Event partialUpdate(UUID id, PatchEventRequest request) {
         Event existingEvent = findById(id);
+        checkNotFinished(existingEvent);
         checkStatusTransition(existingEvent, request.status());
         Event eventToUpdate = eventMapper.applyPatch(existingEvent, request);
         eventRules.check(eventToUpdate);
@@ -117,6 +119,20 @@ public class EventService {
         Event event = findById(id);
         eventRepository.delete(event);
         log.info("Deleted event with ID {}: {}", id, event);
+    }
+
+    /**
+     * Checks that the event is still open to change. An event that has reached a terminal status
+     * is a matter of record: no part of it may be edited, whatever the request asks for. Throws a
+     * {@link BusinessRuleException} if it has finished.
+     */
+    private static void checkNotFinished(Event event) {
+        if (!event.getStatus().isTerminal()) {
+            return;
+        }
+
+        throw new BusinessRuleException(
+                "Event is %s and can no longer be updated".formatted(event.getStatus()));
     }
 
     /**

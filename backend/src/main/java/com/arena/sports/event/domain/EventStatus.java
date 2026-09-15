@@ -15,10 +15,18 @@ public enum EventStatus {
             EnumSet.noneOf(EventStatus.class), CANCELLED, EnumSet.noneOf(EventStatus.class));
 
     /**
-     * Returns true if this status can transition to the target status, false otherwise.
+     * Returns true if this status can transition to the target status, false
+     * otherwise.
      */
     public boolean canTransitionTo(EventStatus target) {
         return this == target || ALLOWED_TRANSITIONS.getOrDefault(this, Set.of()).contains(target);
+    }
+
+    /**
+     * Returns true if this status is the end of the line eg. completed or cancelled
+     */
+    public boolean isTerminal() {
+        return ALLOWED_TRANSITIONS.getOrDefault(this, Set.of()).isEmpty();
     }
 
 }

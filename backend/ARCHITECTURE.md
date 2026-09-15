@@ -155,6 +155,21 @@ SCHEDULED ──► LIVE ──► COMPLETED
 for a status moving to itself, which is what lets a full `PUT` restate the
 current status without tripping the check.
 
+**A terminal event is frozen, not merely un-transitionable.** Once an event is
+`COMPLETED` or `CANCELLED` it is a matter of record: `PUT` and `PATCH` both 409
+whatever the body asks for — a title fix, a venue correction, even a no-op that
+restates the current status. `checkNotFinished` in `EventService` enforces this
+ahead of the transition check, so a request against a finished event never
+reaches the mapper. `DELETE` is deliberately left open, as the way to remove an
+event recorded in error.
+
+This one is not an `EventRule`, and the reason generalises: a rule sees only the
+entity *after* the change (§3), so it cannot tell "was already `COMPLETED`" from
+"is being completed right now" — as a rule it would reject the legal
+`LIVE -> COMPLETED` move. **A check that needs the stored state as well as the
+requested one belongs in `EventService`, next to `checkStatusTransition`; a
+check that only needs the outcome belongs in `domain/rule/`.**
+
 **Both `PUT` and `PATCH` enforce this**, via `checkStatusTransition` in
 `EventService`. An illegal move is a 409 before the mapper is called; the mapper
 itself applies whatever it is given and passes no judgement, which is why its
