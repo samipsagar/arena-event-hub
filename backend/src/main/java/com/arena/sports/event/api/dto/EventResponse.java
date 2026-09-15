@@ -8,31 +8,29 @@ import com.arena.sports.event.domain.Sport;
 
 public record EventResponse(UUID id,
 
-        String title,
+                String title,
 
-        String description,
+                String description,
 
-        Sport sport,
+                Sport sport,
 
-        EventStatus status,
+                EventStatus status,
 
-        String venue,
+                String venue,
 
-        Instant startsAt,
+                Instant startsAt,
 
-        Instant endsAt,
+                Instant endsAt,
 
-        int durationMinutes,
+                int durationInMinutes,
 
-        int participantLimit,
+                int participantLimit,
 
-        int registeredParticipants,
+                int registeredParticipants,
 
-        int spotsRemaining,
+                int spotsRemaining,
 
-        Instant createdAt,
+                Instant createdAt,
 
-        Instant updatedAt) {
+                Instant updatedAt) {
 }
-
-
