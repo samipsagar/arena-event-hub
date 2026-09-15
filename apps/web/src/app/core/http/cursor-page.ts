@@ -1,4 +1,3 @@
-/** One page of a cursor-paginated endpoint. */
 export interface CursorPage<T> {
   readonly data: readonly T[];
   readonly nextCursor: string | null;

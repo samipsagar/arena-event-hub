@@ -19,7 +19,6 @@ export interface ProblemDetail {
   readonly errors: readonly string[];
 }
 
-/** Parses a problem document, or returns null if `json` isn't one. */
 export function parseProblemDetail(json: unknown): ProblemDetail | null {
   if (!isRecord(json)) {
     return null;

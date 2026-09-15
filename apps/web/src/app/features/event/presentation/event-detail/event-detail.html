@@ -1,0 +1,58 @@
+@switch (viewModel.event.status()) {
+  @case ('loading') {
+    <div class="flex justify-center py-8" role="status">
+      <mat-progress-spinner mode="indeterminate" diameter="40" />
+      <span class="sr-only">Loading event</span>
+    </div>
+  }
+  @case ('error') {
+    <section class="flex flex-col items-start gap-4 py-8" role="alert">
+      <p class="m-0">{{ displayMessage(toAppError(viewModel.event.error())) }}</p>
+      <div class="flex gap-2">
+        <button mat-stroked-button type="button" (click)="viewModel.event.reload()">Retry</button>
+        <a mat-button [routerLink]="routes.events">Back to events</a>
+      </div>
+    </section>
+  }
+  @default {
+    @if (viewModel.event.value(); as event) {
+      <div class="flex flex-col gap-4">
+        <a class="no-underline" [routerLink]="routes.events">← Back to events</a>
+
+        <mat-card>
+          <mat-card-content class="flex flex-col gap-4">
+            <h1 class="m-0">{{ event.title }}</h1>
+            <p class="m-0">{{ event.description }}</p>
+
+            <dl class="m-0 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
+              <dt class="font-medium">Venue</dt>
+              <dd class="m-0">{{ event.venue }}</dd>
+              <dt class="font-medium">Sport</dt>
+              <dd class="m-0">{{ sportLabels[event.sport] }}</dd>
+              <dt class="font-medium">Status</dt>
+              <dd class="m-0">{{ statusLabels[event.status] }}</dd>
+              <dt class="font-medium">Starts</dt>
+              <dd class="m-0">{{ event.startsAt | date: 'medium' }}</dd>
+              <dt class="font-medium">Ends</dt>
+              <dd class="m-0">{{ event.endsAt | date: 'medium' }}</dd>
+              <dt class="font-medium">Participants</dt>
+              <dd class="m-0">{{ event.registeredParticipants }} / {{ event.participantLimit }}</dd>
+            </dl>
+          </mat-card-content>
+        </mat-card>
+
+        <div class="flex gap-2">
+          <a mat-button [routerLink]="routes.editEvent(event.id)">Edit</a>
+          <button
+            mat-button
+            type="button"
+            [disabled]="deleteViewModel.state().kind === 'running'"
+            (click)="confirmDelete()"
+          >
+            {{ deleteViewModel.state().kind === 'running' ? 'Deleting…' : 'Delete' }}
+          </button>
+        </div>
+      </div>
+    }
+  }
+}

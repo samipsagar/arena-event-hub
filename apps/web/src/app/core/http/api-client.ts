@@ -8,7 +8,6 @@ import { API_BASE_URL } from '@core/config/config';
 /** Query parameter values `undefined` entries are dropped, not sent as `"undefined"`. */
 export type QueryParams = Readonly<Record<string, string | number | boolean | undefined>>;
 
-/**  Thin typed wrapper over `HttpClient`.*/
 @Service()
 export class ApiClient {
   private readonly http = inject(HttpClient);

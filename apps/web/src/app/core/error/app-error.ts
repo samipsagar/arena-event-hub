@@ -26,7 +26,6 @@ export interface NetworkError extends AppBaseError {
   readonly kind: 'network';
 }
 
-/** The caller cancelled the request. */
 export interface CancelledError extends AppBaseError {
   readonly kind: 'cancelled';
 }

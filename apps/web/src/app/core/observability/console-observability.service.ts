@@ -1,7 +1,6 @@
 import { Service } from '@angular/core';
 import { LogContext, LogLevel, ObservabilityService } from './observability.service';
 
-/** Which `console` method each level lands on. */
 const SINKS: Record<LogLevel, (message: string, ...rest: unknown[]) => void> = {
   debug: console.debug,
   info: console.info,

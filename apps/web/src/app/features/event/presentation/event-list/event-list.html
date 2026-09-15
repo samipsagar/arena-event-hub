@@ -1,0 +1,92 @@
+<header class="flex flex-wrap items-center justify-between gap-4">
+  <h1>Events</h1>
+  <a mat-flat-button routerLink="/events/new">New event</a>
+</header>
+
+<form class="mt-2 mb-6 flex flex-col gap-2" (submit)="$event.preventDefault()">
+  <mat-form-field subscriptSizing="dynamic">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      id="filter-title"
+      name="title"
+      [ngModel]="titleFilter()"
+      (ngModelChange)="titleFilter.set($event)"
+    />
+  </mat-form-field>
+
+  <div class="flex flex-wrap gap-4">
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label>Sport</mat-label>
+      <mat-select
+        id="filter-sport"
+        name="sport"
+        [ngModel]="query().sport ?? null"
+        (ngModelChange)="applyFilter({ sport: $event ?? undefined })"
+      >
+        <mat-option [value]="null">All</mat-option>
+        @for (sport of sports; track sport) {
+          <mat-option [value]="sport">{{ sportLabels[sport] }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field subscriptSizing="dynamic">
+      <mat-label>Status</mat-label>
+      <mat-select
+        id="filter-status"
+        name="status"
+        [ngModel]="query().status ?? null"
+        (ngModelChange)="applyFilter({ status: $event ?? undefined })"
+      >
+        <mat-option [value]="null">All</mat-option>
+        @for (status of statuses; track status) {
+          <mat-option [value]="status">{{ statusLabels[status] }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+@switch (store.status()) {
+  @case ('loading') {
+    <div class="flex justify-center py-8" role="status">
+      <mat-progress-spinner mode="indeterminate" diameter="40" />
+      <span class="sr-only">Loading events</span>
+    </div>
+  }
+  @case ('error') {
+    <section class="flex flex-col items-start gap-4 py-8" role="alert">
+      <p class="m-0">{{ displayMessage(store.error()!) }}</p>
+      <button mat-stroked-button type="button" (click)="store.refresh()">Retry</button>
+    </section>
+  }
+  @default {
+    @if (store.isEmpty()) {
+      <section class="py-8">
+        <p class="m-0">{{ isFiltered() ? 'No events match these filters.' : 'No events yet.' }}</p>
+      </section>
+    } @else {
+      <ul class="m-0 grid list-none grid-cols-[repeat(auto-fill,minmax(18rem,1fr))] gap-4 p-0">
+        @for (event of store.events(); track event.id) {
+          <li><arena-event-card [event]="event" /></li>
+        }
+      </ul>
+
+      <p class="sr-only" aria-live="polite">Showing {{ store.events().length }} events</p>
+
+      @if (store.hasNext()) {
+        <div class="flex justify-center py-6">
+          <button
+            mat-stroked-button
+            type="button"
+            [disabled]="store.isLoadingMore()"
+            (click)="store.loadMore()"
+          >
+            {{ store.isLoadingMore() ? 'Loading…' : 'Load more' }}
+          </button>
+        </div>
+      }
+    }
+  }
+}
